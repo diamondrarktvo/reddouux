@@ -3,6 +3,7 @@ import {
    DECREMENT_STATE,
    ADD_NEW_USER,
    REMOVE_USER,
+   EDIT_USER,
 } from './action_names';
 
 export const incrementNbreAction = () => ({
@@ -21,4 +22,9 @@ export const addNewUserAction = (newUser) => ({
 export const removeUser = (idUser) => ({
    type: REMOVE_USER,
    payload: idUser,
+});
+
+export const editUser = (newUserAfterUpdate) => ({
+   type: EDIT_USER,
+   payload: newUserAfterUpdate,
 });

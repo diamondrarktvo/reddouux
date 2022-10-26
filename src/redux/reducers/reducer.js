@@ -1,6 +1,10 @@
 import produce from 'immer';
 import { DECREMENT_STATE, INCREMENT_STATE } from '../actions/action_names';
-import { addNewUserAction, removeUser } from '../actions/action_creator';
+import {
+   addNewUserAction,
+   removeUser,
+   editUser,
+} from '../actions/action_creator';
 
 export const initialState = {
    colorNombre: 'text-danger',
@@ -87,6 +91,19 @@ export const reducer = (state = initialState, action) => {
             draft.users = draft.users.filter(
                (user) => parseInt(user.id) !== parseInt(iduser)
             );
+         });
+
+      case editUser().type:
+         const userToModified = action.payload;
+         return produce(state, (draft) => {
+            let oldValue = draft.users.filter(
+               (user) => parseInt(user.id) === parseInt(userToModified.id)
+            );
+            if (oldValue) {
+               oldValue[0].name = userToModified.name;
+               oldValue[0].surname = userToModified.surname;
+               oldValue[0].age = userToModified.age;
+            }
          });
 
       default:

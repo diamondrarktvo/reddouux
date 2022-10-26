@@ -16,6 +16,7 @@ import './index.css';
 //redux
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { EditUser } from './pages/forms/EditProfil';
 
 ReactDOM.render(
    <Provider store={store}>
@@ -34,6 +35,9 @@ ReactDOM.render(
                </Route>
                <Route exact path="/add-profil">
                   <AddUser />
+               </Route>
+               <Route exact path="/edit-profil/:idUser">
+                  <EditUser />
                </Route>
                <Route exact path="/compteur">
                   <Compteur />

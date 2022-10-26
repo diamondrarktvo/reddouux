@@ -2,6 +2,7 @@ import React from 'react';
 import { BtnRetour } from '../../components/BtnRetour';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeUser } from '../../redux/actions/action_creator';
+import { Link } from 'react-router-dom';
 
 export const Profil = () => {
    const users = useSelector((user) => user.users);
@@ -24,7 +25,7 @@ export const Profil = () => {
                      </tr>
                   </thead>
                   <tbody>
-                     {users ? (
+                     {users.length !== 0 ? (
                         users.map((user, index) => (
                            <tr key={index}>
                               <th scope="row">{index}</th>
@@ -32,7 +33,11 @@ export const Profil = () => {
                               <td>{user.surname}</td>
                               <td>{user.age}</td>
                               <td>
-                                 <button className="btn btn-info">Edit</button>
+                                 <Link to={`/edit-profil/${user.id}`}>
+                                    <button className="btn btn-info">
+                                       Edit
+                                    </button>
+                                 </Link>
                                  <button
                                     className="btn btn-danger"
                                     onClick={() => {
@@ -45,7 +50,9 @@ export const Profil = () => {
                            </tr>
                         ))
                      ) : (
-                        <td>Pas de profil enregistré!!!</td>
+                        <tr>
+                           <td>Pas de profil enregistré!!!</td>
+                        </tr>
                      )}
                   </tbody>
                </table>
