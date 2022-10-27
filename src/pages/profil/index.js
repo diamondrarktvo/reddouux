@@ -5,7 +5,7 @@ import { removeUser } from '../../redux/actions/action_creator';
 import { Link } from 'react-router-dom';
 
 export const Profil = () => {
-   const users = useSelector((user) => user.users);
+   const users = useSelector((state) => state.profil.users);
    const dispatch = useDispatch();
 
    return (

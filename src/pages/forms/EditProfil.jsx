@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 export const EditUser = () => {
    const { idUser } = useParams();
    const dispatch = useDispatch();
-   const users = useSelector((state) => state.users);
+   const users = useSelector((state) => state.profil.users);
    const userToModified = users.filter((user) => user.id === parseInt(idUser));
    const [userFound, setUserFound] = useState(
       userToModified.length !== 0
