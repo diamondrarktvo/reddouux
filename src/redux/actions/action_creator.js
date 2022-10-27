@@ -4,6 +4,7 @@ import {
    ADD_NEW_USER,
    REMOVE_USER,
    EDIT_USER,
+   ADD_TODO,
 } from './action_names';
 
 export const incrementNbreAction = () => ({
@@ -27,4 +28,9 @@ export const removeUser = (idUser) => ({
 export const editUser = (newUserAfterUpdate) => ({
    type: EDIT_USER,
    payload: newUserAfterUpdate,
+});
+
+export const addTodo = (todo) => ({
+   type: ADD_TODO,
+   payload: todo,
 });

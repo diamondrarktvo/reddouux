@@ -20,6 +20,10 @@ export const Home = () => {
             <Link to="/add-profil">
                <button className="btn btn-light">Add Profil</button>
             </Link>
+
+            <Link to="/todo">
+               <button className="btn btn-info">Add Todo</button>
+            </Link>
          </div>
       </div>
    );
